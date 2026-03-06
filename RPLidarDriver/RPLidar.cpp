@@ -45,14 +45,9 @@ RPLidar::~RPLidar()
 }
 
 // open the given serial interface and try to connect to the RPLIDAR
-bool RPLidar::begin(HardwareSerial &serialobj)
+void RPLidar::begin(HardwareSerial &serialobj)
 {
-    if (isOpen()) {
-      end(); 
-    }
     _bined_serialdev = &serialobj;
-    _bined_serialdev->end();
-    _bined_serialdev->begin(RPLIDAR_SERIAL_BAUDRATE);
 }
 
 // close the currently opened serial interface
